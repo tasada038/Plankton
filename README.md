@@ -150,9 +150,25 @@ Open again a new terminal (don't forget to source ROS 2 / Gazebo files if necess
 `ros2 launch uuv_descriptions upload_rexrov_default.launch.py mode:=default x:=0 y:=0 z:=-20 namespace:=rexrov gazebo_namespace:="''"`
 
 Add a joystick node to control it remotely (new terminal needed) :  
+`ros2 launch uuv_control_cascaded_pid joy_accel.launch uuv_name:=rexrov model_name:=rexrov joy_id:=0`
+
+TBD: joy_velocity.launch has not been confirmed yet.
 `ros2 launch uuv_control_cascaded_pid joy_velocity.launch uuv_name:=rexrov model_name:=rexrov joy_id:=0`
 
 Here, joy_id represents your joystick id, defined in your OS. You can determine what is your id by installing `sudo apt-get install jstest-gtk` and running it.
+
+An example of joy pad operation is shown below. (MODE OFF)
+
+| Joy | 6DOF | 
+| ---- | ---- |
+| D-Pad Left | +x |
+| D-Pad Right | -x |
+| Left Joy Pad Up | +z |
+| Left Joy Pad Down | -z |
+| Left Joy Pad Left | +rz |
+| Left Joy Pad Right | -rz |
+| Right Joy Pad Up | +y |
+| Right Joy Pad Down | -y |
 
 A more complete documentation of the UUV Simulator features is available here:  
 <https://uuvsimulator.github.io/>
